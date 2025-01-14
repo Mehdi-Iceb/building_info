@@ -130,7 +130,7 @@ class BuildingController extends Controller
 
              //Filtre par bilan dpe
              if ($request->has('bilan_dpe')) {
-                $conditions[] = "classe_bilan_dpe=eq.{$request->bilan_dpe}";
+                $conditions[] = "classe_bilan_dpe=eq.".Str::upper($request->bilan_dpe)."";
             }
 
              //Filtre par adresse
