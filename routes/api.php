@@ -16,3 +16,4 @@ Route::get('buildings/tiles/{z}/{x}/{y}', [BuildingController::class, 'getTile']
 Route::get('/buildings/search', [BuildingController::class, 'searchBuildings']);
 
 Route::get('/buildings/complete', [BuildingController::class, 'getAllBuildingInfo']);
+

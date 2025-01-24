@@ -94,6 +94,8 @@ class BuildingController extends Controller
                 'bilan_dpe' => 'nullable|string',
                 'address' => 'nullable|string', 
                 'fiabilite_sol' => 'nullable|string',
+                'mat_mur_txt' => 'nullable|string',
+                'usage_niveau_1_txt' => 'nullable|string',
             ]);
 
             // Construction des conditions de recherche
@@ -141,6 +143,16 @@ class BuildingController extends Controller
              //Filtre par fiabilité sol
              if ($request->has('fiabilite_sol')) {
                 $conditions[] = "fiabilite_emprise_sol=eq.".Str::upper($request->fiabilite_sol)."";
+            }
+
+            //Filtre par mat_mur_txt
+            if ($request->has('mat_mur_txt')) {
+                $conditions[] = "mat_mur_txt=eq.".Str::upper($request->mat_mur_txt)."";
+            }
+
+            //Filtre par usage_niveau_1_txt
+            if ($request->has('usage_niveau_1_txt')) {
+                $conditions[] = "usage_niveau_1_txt=eq.{$request->usage_niveau_1_txt}";
             }
 
             // Construction de l'URL avec les conditions
